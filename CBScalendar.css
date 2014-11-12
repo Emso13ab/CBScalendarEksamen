@@ -1,0 +1,17 @@
+.table{
+	float: left; 
+}
+
+.header{
+	color: red;
+	text-align: center;
+	table-layout:fixed;
+}
+
+.td1{
+	width: 150px;
+	text-align: center;
+	height: 30px; 
+	border: 1px solid black;
+}
+
