@@ -1,17 +1,76 @@
+
+
 .table{
-	float: left; 
+	border-collapse: collapse; 
+	float: right;
+	width: 1040px;
+	height: 900px;
+	margin-right: 10px;
 }
 
-.header{
-	color: red;
-	text-align: center;
+.weekDays{
+	color: #F0F0F0;
+	text-align: center; 
 	table-layout:fixed;
+	border: 2px solid black;
 }
 
 .td1{
+	color: #484848;
 	width: 150px;
 	text-align: center;
 	height: 30px; 
 	border: 1px solid black;
+	background-color: #F0F0F0;
+
 }
+
+.td2{
+	color: #484848;
+	width: 150px;
+	text-align: center;
+	height: 30px; 
+	border: 1px solid black;
+	background-color: #E6E6E6;
+}
+
+.td3{
+	color: #484848;
+	width: 150px;
+	text-align: center;
+	height: 30px; 
+	border: 2px solid black;
+	background-color: #E6E6E6;
+}
+
+.td4{
+	color: #484848;
+	width: 150px;
+	text-align: center;
+	height: 30px; 
+	border: 2px solid black;
+	background-color: #E6E6E6;
+}
+
+.wrapper{
+	height: 200px;
+	width: 150px;
+	float: left;
+	background-color: #E6E6E6;
+	border-radius: 10px;
+}
+
+#menu{
+	height: 30px;
+	width: 120px;
+	text-align: center;
+	background-color: #484848;
+	margin-right: 15px;
+	margin-left: 15px;
+	margin-top: 16px;
+	color: #F0F0F0;
+	line-height: 28px;
+	border-radius: 10px;
+}
+
 
