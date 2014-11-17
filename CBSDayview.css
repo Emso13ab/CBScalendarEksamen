@@ -1,14 +1,12 @@
-
-
 .table{
 	border-collapse: collapse; 
 	float: right;
-	width: 1040px;
+	width: 500px;
 	height: 900px;
-	margin-right: 10px;
+	margin-right: 345px;
 }
 
-.weekDays{
+.weekDay{
 	color: #F0F0F0;
 	text-align: center; 
 	table-layout:fixed;
@@ -25,18 +23,9 @@
 
 }
 
-.td2{
-	color: #484848;
-	width: 150px;
-	text-align: center;
-	height: 30px; 
-	border: 1px solid black;
-	background-color: #E6E6E6;
-}
-
 .td3{
 	color: #484848;
-	width: 150px;
+	width: 50px;
 	text-align: center;
 	height: 30px; 
 	border: 2px solid black;
@@ -53,26 +42,25 @@
 }
 
 .wrapper{
-	height: 200px;
+	height: 100px;
 	width: 150px;
 	float: left;
 	background-color: #E6E6E6;
 	border-radius: 5px;
 	border: 2px solid black;
+	margin-left: 160px;
 }
 
 #menu{
-	height: 30px;
+	height: 50px;
 	width: 120px;
 	text-align: center;
 	background-color: #484848;
 	margin-right: 15px;
 	margin-left: 15px;
-	margin-top: 16px;
+	margin-top: 25px;
 	color: #F0F0F0;
 	line-height: 28px;
 	border-radius: 5px;
 	border: 2px solid black;
 }
-
-
