@@ -5,32 +5,58 @@
 	margin-left: auto;
 	margin-top: 180px;
 	margin-bottom: 20px;
-	background-color: black;
-}
-
-#textfield{
-	
+	background-color: white;
+	border: solid black;
 }
 
 #username{
 	width: 200px;
 	height: 30px;
-	margin-top: 50px;
-	margin-left: auto;
-	color: white;
+	margin-top: 30px;
+	margin-left: 147px;
+	color: #E6E6E6;
+	border: solid black;
 }
 
 #password{
 	width: 200px;
 	height: 30px;
-	margin-top: 50px;
-	margin-left: auto;
-	color: white;
+	margin-top: 20px;
+	margin-left: 147px;
+	color: #E6E6E6;
+	border: solid black; 
 }
 
 #login{
-	width: 15px;
-	height: 10px;
-	margin-top: 30px;
-	margin-left: auto;
+	width: 63px;
+	height: 26px;
+	margin-top: 15px;
+	margin-left: 223px;
+	border: solid black;
 }
+
+#img1{
+	width: 300px;
+	height: 70px;
+	margin-top: 30px;
+	margin-left: 105px;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: black;
+    text-align: center;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: black; 
+   text-align: center;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: black;
+   text-align: center;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color: black;
+   text-align: center;
+}
+
+
