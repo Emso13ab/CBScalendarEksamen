@@ -1,3 +1,16 @@
+<?php  
+
+
+$jsonString = "
+    { \"events\": [
+	    {\"activityid\":\"BINTO1035U_XB_E14\",\"eventid\":\"BINTO1035U_XB_E14_7522cb9e2c47efa1e3ff6ac24002be36_99537c3adf3e04bc329ed38f0e58ce2e\",\"type\":\"Lecture\",\"title\":\"BINTO1035U.XB_E14\",\"description\":\"Distribuerede Systemer (XB)\",\"start\":[\"2014\",11,\"24\",\"8\",\"00\"],\"end\":[\"2014\",11,\"24\",\"9\",\"40\"],\"location\":\"Ks71\"},
+		{\"activityid\":\"BINTO1035U_XB_E14\",\"eventid\":\"BINTO1035U_XB_E14_5eea61ae6c2d8824d340e3b57c52dc11_a48b708b5cdbd426b599420f90697a1f\",\"type\":\"Exercise\",\"title\":\"BINTO1035U.XB_E14\",\"description\":\"Makro\u00f8konomi (XB)\",\"start\":[\"2014\",11,\"26 \",\"11\",\"00\"],\"end\":[\"2014\",11,\"26\",\"12\",\"40\"],\"location\":\"SP114\"},
+		{\"activityid\":\"BINTO1035U_XB_E14\",\"eventid\":\"BINTO1035U_XB_E14_e523a307e38d3b09094746c6d679e683_087a51abc6bd219e13e0351601e0e1aa\",\"type\":\"Lecture\",\"title\":\"BINTO1035U.XB_E14\",\"description\":\"Makro\u00f8konomi (XB)\",\"start\":[\"2014\",11,\"22\",\"8\",\"00\"],\"end\":[\"2014\",11,\"22\",\"9\",\"40\"],\"location\":\"Ks71\"}
+	]}
+";
+
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -7,10 +20,18 @@
 
 <body>
 	<div class="wrapper">
-		<button id="menu" type="button">Create event</button>
-		<button id="menu" type="button">Create note</button>
-		<button id="menu" type="button">Dayview</button>
-		<button id="menu" type="button">Logout</button>
+		<form action="CBSCreateEvent.html" method="get">
+			<button id="menu" type="submit" value="createEvent" name="Create Event">Create event</button>
+		</form>
+		<form action="CBSCreateNote.html" method="get">
+			<button id="menu" type="submit" value="createNote" name="Create Note">Create note</button>
+		</form>
+		<form action="CBSDayview.html" method="get">	
+			<button id="menu" type="submit" value="dayview" name="Dayview">Dayview</button>
+		</form>
+		<form action="LoginCBS.html" method="get">
+			<button id="menu" type="submit" value="logout" name="Logout">Logout</button>
+		</form>
 	</div>
 
 	<table class="table">
