@@ -1,6 +1,6 @@
 #div1{
-	height:500px;
-	width: 400px;
+	height:530px;
+	width: 430px;
 	background-color: #E6E6E6;
 	margin-top: 100px;
 	margin-left: 400px;
@@ -17,7 +17,7 @@ h1{
 	height: 40px;
 	width: 250px;
 	background-color: white;
-	margin-top: 25px;
+	margin-top: 15px;
 	margin-left: 20px;
 	border-radius: 5px;
 	border: 2px solid black;
@@ -27,28 +27,81 @@ h1{
 	height: 60px;
 	width: 250px;
 	background-color: white;
-	margin-top: 25px;
+	margin-top: 15px;
 	margin-left: 20px;
 	border-radius: 5px;
 	border: 2px solid black;
+}
+
+#eventStart{
+	color: black;
+	font-size: 12px;
+	margin-top: 5px;
+	margin-left: 20px;
+	font-weight: bold;
+}
+
+#eventEnd{
+	color: black;
+	font-size: 12px;
+	margin-top: -30px;
+	margin-left: 20px;
+	font-weight: bold;
 }
 
 #dropdown{
 	height: 30px;
 	width: 70px;
 	background-color: white;
-	margin-top: 25px;
+	margin-top: -13px;
+	margin-left: 8px;
+	border-radius: 5px;
+	border: 2px solid black;
+	text-align: center;
+	float: left;
+}
+
+#dropdownDate{
+	height: 30px;
+	width: 70px;
+	background-color: white;
+	margin-top: -13px;
 	margin-left: 20px;
 	border-radius: 5px;
 	border: 2px solid black;
 	text-align: center;
+	float: left;
+}
+
+#dropdownTime{
+	height: 30px;
+	width: 70px;
+	background-color: white;
+	margin-top: -31px;
+	margin-left: 253px;
+	border-radius: 5px;
+	border: 2px solid black;
+	text-align: center;
+	float: left;
+}
+
+#dropdownTime2{
+	height: 30px;
+	width: 70px;
+	background-color: white;
+	margin-top: -49px;
+	margin-left: 332px;
+	border-radius: 5px;
+	border: 2px solid black;
+	text-align: center;
+	float: left;
 }
 
 #button1{
 	height: 35px;
 	width: 100px;
 	background-color: white;
-	margin-top: 25px;
+	margin-top: -3px;
 	margin-left: 20px;
 	border-radius: 5px;
 	border: 2px solid black;
@@ -59,9 +112,10 @@ h1{
 	height: 35px;
 	width: 70px;
 	background-color: white;
-	margin-top: 25px;
-	margin-left: 186px;
+	margin-top: -51px;
+	margin-right: 27px;
 	border-radius: 5px;
 	border: 2px solid black;
 	text-align: center;
+	float: right;
 }

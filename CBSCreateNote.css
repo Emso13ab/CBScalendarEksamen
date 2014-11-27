@@ -59,9 +59,10 @@ h1{
 	height: 35px;
 	width: 70px;
 	background-color: white;
-	margin-top: -50px;
-	margin-left: 150px;
+	margin-top: -34px;
 	border-radius: 5px;
 	border: 2px solid black;
 	text-align: center;
+	float: right;
+	margin-right: 20px;
 }
