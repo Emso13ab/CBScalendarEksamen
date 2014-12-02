@@ -3,6 +3,18 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+
+function CBSCalendarApiInteract(){
+	$encrypted_hash =  md5("emso13ab". "v.eRyzeKretW0r_t");
+
+	$getCBSCalendar = "https://calendar.cbs.dk/events.php/". "emso13ab". "/".$encrypted_hash."."."json";
+
+	$jsonObject = file_get_contents($getCBSCalendar);
+	$jsonObjectArray = json_decode($jsonObject, true);
+
+	return $jsonObjectArray;
+}
+
 $jsonString = "
     { \"events\": [
 	    {\"activityid\":\"BINTO1035U_XB_E14\",\"eventid\":\"BINTO1035U_XB_E14_7522cb9e2c47efa1e3ff6ac24002be36_99537c3adf3e04bc329ed38f0e58ce2e\",\"type\":\"Lecture\",\"title\":\"BINTO1035U.XB_E14\",\"description\":\"Distribuerede Systemer (XB)\",\"start\":[\"2014\",11,\"24\",\"8\",\"00\"],\"end\":[\"2014\",11,\"24\",\"9\",\"40\"],\"location\":\"Ks71\"},
@@ -22,21 +34,25 @@ $jsonString = "
 <link type="text/css" rel="stylesheet" href="CBScalendar.css"/>
 	<title>CBS Calendar</title>
 </head>
-
+<style>
+	body{
+		background-image:url(sandpaper.png);
+	}
+</style>
 <body>
 	<div class="wrapper">
-		<form action="CBSCreateEvent.html" method="get">
+		<form action="CBSCreateEvent.php" method="get">
 			<button id="menu" type="submit" value="createEvent" name="Create Event">Create event</button>
 		</form>
-		<form action="CBSCreateNote.html" method="get">
+		<form action="CBSCreateNote.php" method="get">
 			<button id="menu" type="submit" value="createNote" name="Create Note">Create note</button>
 		</form>
-		<form action="CBSDayview.html" method="get">	
+		<form action="CBSDayview.php" method="get">	
 			<button id="menu" type="submit" value="dayview" name="Dayview">Dayview</button>
 		</form>
 		<button id="menu">Weather</button>
 		<button id="menu">Quote of the day</button>
-		<form action="LoginCBS.html" method="get">
+		<form action="LoginCBS.php" method="get">
 			<button id="menu" type="submit" value="logout" name="Logout">Logout</button>
 		</form>
 
@@ -46,7 +62,33 @@ $jsonString = "
 		<tr class="dates">
 			<?php 
 			// set current date
-			$date = date("m/d/y"); 
+			if(isset($_GET['lastweek'])){
+				if(isset($_GET['weekNumber'])){
+					$weekNumber = $_GET['weekNumber'];
+					$weekNumber--;
+				}else{
+					$weekNumber=0;
+					$weekNumber--;
+				}
+				
+				$weekString = $weekNumber . " week";
+
+				$date = date("m/d/y", strtotime($weekString));
+
+			}elseif(isset($_GET['nextweek'])){
+				if(isset($_GET['weekNumber'])){
+					$weekNumber = $_GET['weekNumber'];
+					$weekNumber++;
+				}else{
+					$weekNumber = 1;
+				}
+				
+				$weekString = $weekNumber . " week";
+
+				$date = date("m/d/y", strtotime($weekString));
+			}else{
+				$date = date("m/d/y"); 
+			}
 			// parse about any English textual datetime description into a Unix timestamp
 			$ts = strtotime($date);
 			// calculate the number of days since Monday
@@ -85,8 +127,55 @@ $jsonString = "
 
 					<?php 
 					//$topMargin = 68;
+					$cbsCalendar = CBSCalendarApiInteract();
+
+					foreach ($cbsCalendar['events'] as $eventInfo){
+						$topMargin = 68;
+
+						$eventStartYear   	   = $eventInfo['start'][0];
+						$eventStartMonth  	   = $eventInfo['start'][1];
+						$eventStartDay         = $eventInfo['start'][2];
+						$eventStartTimeHour    = $eventInfo['start'][3];
+						$eventStartTimeMinutes = $eventInfo['start'][4];
+
+						$eventEndTimeHour 	   = $eventInfo['end'][3];
+						$eventEndTimeMinutes   = $eventInfo['end'][4];
+
+						$eventStartTimeHourInMin = $eventStartTimeHour * 60;
+						$eventStartTimeInMin = $eventStartTimeHourInMin + $eventStartTimeMinutes;
 
 
+						$eventEndTimeHourInMin = $eventEndTimeHour * 60;
+						$eventEndTimeInMin = $eventEndTimeHourInMin + $eventEndTimeMinutes;
+
+						$eventDuration = $eventEndTimeInMin - $eventStartTimeInMin;
+
+						$currentDateValidateEvent = intval($eventStartYear).intval($eventStartMonth).intval($eventStartDay);
+
+						$eventHeightBordersPerHour = floor($eventDuration / 60) * 3;
+						$eventHeight = $eventDuration + $eventHeightBordersPerHour;
+
+						$eventType 		= $eventInfo['type'];
+						$eventLocation  = $eventInfo['location'];
+						$eventDes 		= $eventInfo['description'];
+						$eventTime 		= $eventStartTimeHour . ":" . $eventStartTimeMinutes . " - " . $eventEndTimeHour . ":" . $eventEndTimeMinutes;
+						$topMargin = ((($eventStartTimeHour - 8) * 60) + $eventStartTimeMinutes) + $topMargin + (floor(((($eventStartTimeHour - 8) * 60) + $eventStartTimeMinutes)/60) * 3);
+
+						if($currentDateValidate == $currentDateValidateEvent){
+						?> 
+						<div class="event" style="top:<?= $topMargin; ?>px;height: <?= $eventHeight; ?>px;">
+							<span class="type"><?= $eventType; ?></span>
+							<span class="description"><?= $eventDes; ?></span>
+							<span class="location"><?= $eventLocation; ?></span>
+							<br/>
+							<span class="time"><?= $eventTime; ?></span>
+						</div>
+						<?php
+						}
+					} 
+					?>
+
+					<?php
 					foreach ($json['events'] as $eventInfo){
 						$topMargin = 68;
 
@@ -110,14 +199,14 @@ $jsonString = "
 
 						$currentDateValidateEvent = intval($eventStartYear).intval($eventStartMonth).intval($eventStartDay);
 
-						$eventHeightBordersPerHour = floor($eventDuration / 60) * 4;
+						$eventHeightBordersPerHour = floor($eventDuration / 60) * 3;
 						$eventHeight = $eventDuration + $eventHeightBordersPerHour;
 
 						$eventType 		= $eventInfo['type'];
 						$eventLocation  = $eventInfo['location'];
 						$eventDes 		= $eventInfo['description'];
 						$eventTime 		= $eventStartTimeHour . ":" . $eventStartTimeMinutes . " - " . $eventEndTimeHour . ":" . $eventEndTimeMinutes;
-						$topMargin = ((($eventStartTimeHour - 8) * 60) + $eventStartTimeMinutes) + $topMargin + (floor(((($eventStartTimeHour - 8) * 60) + $eventStartTimeMinutes)/60) * 4);
+						$topMargin = ((($eventStartTimeHour - 8) * 60) + $eventStartTimeMinutes) + $topMargin + (floor(((($eventStartTimeHour - 8) * 60) + $eventStartTimeMinutes)/60) * 3);
 
 						if($currentDateValidate == $currentDateValidateEvent){
 						?> 
@@ -140,8 +229,8 @@ $jsonString = "
 
 		<tr class="weekDays">
 			<td class="td4">
-				<div id="backWeek"><a href"">Back</a></div>
-				<div id="forwardWeek"><a href"">Forward<a></div>
+				<div id="backWeek"><a href="CBScalendar.php<?php if(isset($weekNumber)){ echo "?weekNumber=" . $weekNumber . "&lastweek=1";}else{ echo "?lastweek=1"; } ?>"><</a></div>
+				<div id="forwardWeek"><a href="CBScalendar.php<?php if(isset($weekNumber)){ echo "?weekNumber=" . $weekNumber . "&nextweek=1";}else{ echo "?nextweek=1"; } ?>">><a></div>
 			</td>
 			<?php 
 			for ($i = 0; $i < 7; $i++) {

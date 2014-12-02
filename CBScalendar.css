@@ -6,53 +6,66 @@
 	width: 1040px;
 	height: 900px;
 	margin-right: 10px;
+	border: 2px solid;
+	background-color: #FFFFF7;
+	table-layout: fixed;
 }
 
 .weekDays{
 	color: #F0F0F0;
 	text-align: center; 
 	table-layout:fixed;
-	border: 2px solid black;
+	border: 2px solid;
+	border-bottom-color: #CC7A7A;
+	border-left-color: black;
+	border-right-color: black;
+	border-top: black;
+	background-color: #FFFFF7;
 }
 
 .td1{
 	color: #484848;
-	width: 150px;
+	width: 100px;
 	text-align: center;
 	height: 60px; 
-	border: 2px solid black;
-	background-color: #F0F0F0;
+	border: 1px solid;
+	border-color: #CC7A7A;
+	background-color: #FFFFF7;
 
 
 }
 
 .td2{
 	color: #484848;
-	width: 150px;
+	width: 100px;
 	text-align: center;
-	height: 30px; 
-	border: 1px solid black;
-	background-color: #E6E6E6;
+	height: 60px; 
+	border: 1px solid;
+	border-color: #CC7A7A;
+	background-color: #FFFFE6;
 	
 }
 
 .td3{
 	color: #484848;
-	width: 150px;
+	width: 100px;
 	text-align: center;
 	height: 60px; 
-	border: 2px solid black;
-	background-color: #E6E6E6;
+	border: 1px solid;
+	border-right: 2px solid;
+	border-color: #CC7A7A;
+	background-color: #FFFFF7;
 	
 }
 
 .td4{
 	color: #484848;
-	width: 150px;
+	width: 100px;
 	text-align: center;
 	height: 30px; 
-	border: 2px solid black;
-	background-color: #E6E6E6;
+	border: 1px solid;
+	border-color: #CC7A7A;
+	background-color: #FFFFF7;
 	position: relative;
 }
 
@@ -64,13 +77,12 @@
 	float: left;
 	background-color: #484848;
 	color: #F0F0F0;
-	font-size: 12px;
+	font-size: 25px;
 	font-family: arial;
 	border: 2px solid black;
 	border-radius: 5px;
 	text-align: center;
 	line-height: 20px;
-	opacity: 20%;
 }
 
 #forwardWeek{
@@ -81,19 +93,24 @@
 	float:right;
 	background-color: #484848;
 	color: #F0F0F0;
-	font-size: 12px;
-	font-family: arial;
+	font-size: 25px;
 	border: 2px solid black;
 	border-radius: 5px;
 	text-align: center;
 	line-height: 20px;
-	opacity: 20%;
 }
+
+a{
+	text-decoration: none;
+	color: #F0F0F0;
+	font-family: arial;
+}
+
 .wrapper{
 	height: 292px;
 	width: 150px;
 	float: left;
-	background-color: #E6E6E6;
+	background-color: #FFFFF7;
 	border-radius: 5px;
 	border: 2px solid black;
 }
@@ -116,8 +133,10 @@
 .event{
 	position: absolute;
 	left: 0px;
-	width: 127px;
-	background-color: #2E57ED;
-	opacity: 10%;
+	width: 128px;
+	background-color: #999994;
+	opacity: 0.90;
+	border: 1px solid;
+	border-color: #4C4C4C;
 }
 

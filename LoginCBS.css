@@ -5,8 +5,9 @@
 	margin-left: auto;
 	margin-top: 180px;
 	margin-bottom: 20px;
-	background-color: white;
+	background-color: #FFFFF7;
 	border: solid black;
+	border-radius: 5px;
 }
 
 #username{

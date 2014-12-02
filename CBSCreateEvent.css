@@ -1,11 +1,12 @@
 #div1{
 	height:530px;
 	width: 430px;
-	background-color: #E6E6E6;
+	background-color: #FFFFF7;
 	margin-top: 100px;
 	margin-left: 400px;
 	border-radius: 10px;
 	border: solid black;
+	border-radius: 5px;
 }
 
 h1{
