@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-
+//Login function
 function CBSCalendarApiInteract(){
 	$encrypted_hash =  md5("emso13ab". "v.eRyzeKretW0r_t");
 
@@ -40,7 +40,9 @@ $jsonString = "
 	}
 </style>
 <body>
+	<!-- Creates menu wrapper -->
 	<div class="wrapper">
+		<!-- Creates action buttons by a get method -->
 		<form action="CBSCreateEvent.php" method="get">
 			<button id="menu" type="submit" value="createEvent" name="Create Event">Create event</button>
 		</form>
@@ -57,10 +59,11 @@ $jsonString = "
 		</form>
 
 	</div>
-
+	<!-- Creates the calendar body using the html table tags -->
 	<table class="table">
 		<tr class="dates">
 			<?php 
+			// dynamic week function
 			// set current date
 			if(isset($_GET['lastweek'])){
 				if(isset($_GET['weekNumber'])){
@@ -108,7 +111,6 @@ $jsonString = "
 			<?php 
 			$json = json_decode($jsonString, true);
 
-			//print_r($json);
 
 			for ($i = 0; $i < 7; $i++) {
 			    $weekday_year   = date("Y", $ts + $i * 86400) . "\n";
@@ -116,8 +118,7 @@ $jsonString = "
 			    $weekday_day_number    = date("j", $ts + $i * 86400) . "\n";
 			    $weekday_month_2  = date("m", $ts + $i * 86400) . "\n";
 			    $weekday_date   = date("d", $ts + $i * 86400) . "\n";
-			    $currentDateValidate = intval($weekday_year).intval($weekday_month_2).intval($weekday_day_number);
-			    //echo $currentDateValidate;
+			    $currentDateValidate = intval($weekday_year).intval($weekday_month_2).intval($weekday_day_number);	   
 			?>
 
 
@@ -126,12 +127,13 @@ $jsonString = "
 					<?= $weekday_day_number . "."; ?>
 
 					<?php 
-					//$topMargin = 68;
+					//
 					$cbsCalendar = CBSCalendarApiInteract();
 
 					foreach ($cbsCalendar['events'] as $eventInfo){
 						$topMargin = 68;
 
+						// comparing events year, month, day and time and prints it on the specific day and time
 						$eventStartYear   	   = $eventInfo['start'][0];
 						$eventStartMonth  	   = $eventInfo['start'][1];
 						$eventStartDay         = $eventInfo['start'][2];
@@ -226,7 +228,7 @@ $jsonString = "
 			
 		</tr>
 
-
+		<!-- back and forward buttons for every week -->
 		<tr class="weekDays">
 			<td class="td4">
 				<div id="backWeek"><a href="CBScalendar.php<?php if(isset($weekNumber)){ echo "?weekNumber=" . $weekNumber . "&lastweek=1";}else{ echo "?lastweek=1"; } ?>"><</a></div>

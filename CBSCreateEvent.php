@@ -12,6 +12,7 @@
 <body>
 	<div id="div1">
 		<h1>Create Event</h1>
+    <!-- Textareas for events -->
 		<form action="demo_form.asp">
   			<input id="eventinfo" type="text" name="title" placeholder="Event Title"><br>
   			<input id="eventdescription" type="text" name="description" placeholder="Event Description"><br>
@@ -19,6 +20,7 @@
   			<input id="eventinfo" type="text" name="createdby" placeholder="Created By"><br>
   		</form>
       <p id="eventStart">Event start<p>
+        <!-- Dropdown menu for event start and end -->
   		<select id="dropdownDate">
   			<option value="Date">Date</option>
   			<option value="1">1</option>
@@ -325,6 +327,7 @@
         <option value="59">59</option>
       </select><br>
   		<button id="button1" type="button">Create Event</button>
+      <!-- creates back button with get method -->
       <form action="CBScalendar.php" method="get">
   		  <button id="button2" type="submit" value="back" name="Back">Back</button>
       </form>

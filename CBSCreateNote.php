@@ -12,11 +12,13 @@
 <body>
 	<div id="div1">
 		<h1>Create Note</h1>
+    <!-- Textareas for notes -->
 		<form action="demo_form.asp">
   			<input id="noteinfo" type="text" name="title" placeholder="Note Title"><br>
   			<input id="notedescription" type="text" name="description" placeholder="Note Description"><br>
   			<input id="noteinfo" type="text" name="createdby" placeholder="Created By"><br>
   		</form>
+      <!-- Dropdown for note date -->
   		<select id="dropdown">
   			<option value="Date">Date</option>
   			<option value="1">1</option>
